@@ -25,15 +25,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func convertClicked(_ sender: UIButton) {
-        if selector.selectedSegmentIndex==0 {
-            let resultado = Double(numberTextField.text!)! * unidad
-            resultLabel.text = String(resultado)
+        if let val = numberTextField.text, let valn = Double(val){
+        
+            if selector.selectedSegmentIndex==0 {
+                let resultado = Double(valn) * unidad
+                resultLabel.text = String(resultado)
+            }else{
+                let resultado = Double(valn) / unidad
+                resultLabel.text = String(resultado)
+            }
         }else{
-            let resultado = Double(numberTextField.text!)! / unidad
-            resultLabel.text = String(resultado)
+            resultLabel.text = "Escribe un valor!"
         }
-    }
     
 
+    }
+    
 }
 
